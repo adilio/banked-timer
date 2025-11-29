@@ -133,6 +133,7 @@ export default function App() {
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [password, setPassword] = useState('');
   const [showError, setShowError] = useState(false);
+  const [showPasswordInput, setShowPasswordInput] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -169,11 +170,16 @@ export default function App() {
   };
 
   const handleReset = () => {
+    if (!showPasswordInput) {
+      setShowPasswordInput(true);
+      return;
+    }
     if (password === RESET_PASSWORD) {
       const now = new Date().toISOString();
       setStartTimestamp(now);
       setPassword('');
       setShowError(false);
+      setShowPasswordInput(false);
     } else {
       setShowError(true);
       setTimeout(() => setShowError(false), 2000);
@@ -314,42 +320,44 @@ export default function App() {
             alignItems: 'center',
             flexWrap: 'wrap'
           }}>
-            <input
-              type="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleReset()}
-              style={{
-                padding: '0.875rem 1.5rem',
-                fontSize: '1rem',
-                border: `2px solid ${showError ? '#ff4444' : '#00ff88'}`,
-                background: 'rgba(255, 255, 255, 0.05)',
-                color: '#fff',
-                borderRadius: '8px',
-                outline: 'none',
-                transition: 'all 0.3s ease',
-                minWidth: '200px',
-                animation: showError ? 'shake 0.5s ease-in-out' : 'none'
-              }}
-            />
+            {showPasswordInput && (
+              <input
+                type="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleReset()}
+                style={{
+                  padding: '0.875rem 1.5rem',
+                  fontSize: '1rem',
+                  border: `2px solid ${showError ? '#ff4444' : '#00ff88'}`,
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  color: '#fff',
+                  borderRadius: '8px',
+                  outline: 'none',
+                  transition: 'all 0.3s ease',
+                  minWidth: '200px',
+                  animation: showError ? 'shake 0.5s ease-in-out' : 'none'
+                }}
+              />
+            )}
             <button 
               onClick={handleReset}
-              disabled={!password}
+              disabled={showPasswordInput && !password}
               style={{
                 padding: '0.875rem 2rem',
                 fontSize: '1rem',
                 fontWeight: 600,
-                background: password ? 'linear-gradient(135deg, #00ff88 0%, #00cc6a 100%)' : '#555',
+                background: !showPasswordInput || password ? 'linear-gradient(135deg, #00ff88 0%, #00cc6a 100%)' : '#555',
                 color: '#1a1a2e',
                 border: 'none',
                 borderRadius: '8px',
-                cursor: password ? 'pointer' : 'not-allowed',
+                cursor: !showPasswordInput || password ? 'pointer' : 'not-allowed',
                 transition: 'all 0.3s ease',
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
-                boxShadow: password ? '0 4px 15px rgba(0, 255, 136, 0.3)' : 'none',
-                opacity: password ? 1 : 0.5
+                boxShadow: !showPasswordInput || password ? '0 4px 15px rgba(0, 255, 136, 0.3)' : 'none',
+                opacity: !showPasswordInput || password ? 1 : 0.5
               }}
             >
               Reset Counter
