@@ -1,4 +1,4 @@
-# Days Since Getting #BANKED Timer ⏱️
+# Days Since Getting #BANKED Timer
 
 A sleek React countdown timer with mechanical flip-clock animations tracking time since getting #BANKED.  
 Repo: https://github.com/adilio/banked-timer  
@@ -7,7 +7,7 @@ Live: https://adilio.github.io/banked-timer/
 ![Timer Preview](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-5.4.2-646CFF?logo=vite)
 
-## ✨ Features
+## Features
 
 - **Mechanical Flip Counter** - Authentic flip-clock animation for each digit
 - **Live Tracking** - Real-time updates every second
@@ -16,7 +16,7 @@ Live: https://adilio.github.io/banked-timer/
 - **Responsive Design** - Looks great on mobile and desktop
 - **Modern UI** - Dark gradient background with neon accents
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -39,7 +39,7 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-## 🛠️ Commands
+## Commands
 
 | Command | Description |
 |---------|-------------|
@@ -47,7 +47,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
 
-## ⚙️ Configuration
+## Configuration
 
 ### Change Start Date
 
@@ -68,7 +68,7 @@ Edit `src/App.jsx`:
 const RESET_PASSWORD = 'banked123'; // Change this password
 ```
 
-## 🎮 Usage
+## Usage
 
 ### Resetting the Counter
 
@@ -86,7 +86,7 @@ The timer calculates elapsed time from a configurable start timestamp and displa
 
 Each digit has a mechanical flip animation when it changes.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 banked-timer/
@@ -100,7 +100,7 @@ banked-timer/
 └── README.md
 ```
 
-## 🚢 Deployment
+## Deployment
 
 ### GitHub Pages (via Actions)
 
@@ -130,7 +130,7 @@ npm run build
 
 The `dist/` folder contains your production-ready files.
 
-## 🎨 Customization
+## Customization
 
 ### Colors
 
@@ -147,7 +147,7 @@ height: 'clamp(80px, 16vw, 140px)',
 fontSize: 'clamp(4rem, 14vw, 7rem)',
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 **Timer not starting?**
 - Clear localStorage: `localStorage.clear()`
@@ -165,7 +165,7 @@ fontSize: 'clamp(4rem, 14vw, 7rem)',
 
 MIT License - feel free to use this project however you'd like!
 
-## 🤝 Contributing
+## Contributing
 
 PRs welcome! Feel free to:
 - Report bugs
@@ -175,4 +175,4 @@ PRs welcome! Feel free to:
 
 ---
 
-Built with ❤️ using React + Vite
+Built with care using React + Vite
