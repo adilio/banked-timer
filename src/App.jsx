@@ -124,7 +124,9 @@ function FlipDigit({ digit }) {
 
 export default function App() {
   const getInitialTimestamp = () => {
-    return '2025-11-01T12:00:00Z';
+    if (typeof window === 'undefined') return '2025-11-01T12:00:00Z';
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored || '2025-11-01T12:00:00Z';
   };
 
   const [startTimestamp, setStartTimestamp] = useState(getInitialTimestamp);
@@ -139,6 +141,11 @@ export default function App() {
 
     return () => clearInterval(interval);
   }, []);
+  
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    localStorage.setItem(STORAGE_KEY, startTimestamp);
+  }, [startTimestamp]);
 
   const calculateTimeDifference = () => {
     const start = new Date(startTimestamp).getTime();
