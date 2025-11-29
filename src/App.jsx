@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const RESET_PASSWORD = 'banked123';
+const RESET_PASSWORD = import.meta.env.VITE_RESET_PASSWORD || 'banked123';
 const STORAGE_KEY = 'banked_timer_start';
 
 function FlipDigit({ digit }) {

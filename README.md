@@ -62,11 +62,15 @@ const getInitialTimestamp = () => {
 
 ### Change Reset Password
 
-Edit `src/App.jsx`:
+Preferred (for deploys): set a GitHub Actions secret named `RESET_PASSWORD`; the workflow injects it as `VITE_RESET_PASSWORD` at build time.
 
-```javascript
-const RESET_PASSWORD = 'banked123'; // Change this password
+Local/dev override: add `.env.local` with:
+
 ```
+VITE_RESET_PASSWORD=your-password
+```
+
+If neither is set, the fallback is `banked123`.
 
 ## Usage
 
